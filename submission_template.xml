@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Submission>
+  <ProjectInfo>
+    <Title>E-Commerce Customer & Sales Analysis Using Apache Spark</Title>
+  </ProjectInfo>
+
+  <Abstract>
+    This project analyzes an e-commerce dataset using Apache Spark (PySpark) to extract valuable insights such as total revenue, best-selling products, top customers, sales by country, and average basket value. Spark was used due to its high performance and ability to process large datasets efficiently.
+  </Abstract>
+
+  <Dataset>
+    <FileName>online_retail.csv</FileName>
+    <Description>
+      The dataset contains transaction records from an online retail store with the following columns:
+      InvoiceNo, StockCode, Description, Quantity, InvoiceDate, UnitPrice, CustomerID, and Country.
+    </Description>
+    <RecordsNote>Enter number of records after loading the dataset</RecordsNote>
+    <Preprocessing>
+      <Step>Removed rows with missing critical values.</Step>
+      <Step>Filtered out records with non-positive Quantity or UnitPrice.</Step>
+      <Step>Created a new column TotalPrice = Quantity * UnitPrice.</Step>
+    </Preprocessing>
+  </Dataset>
+
+  <Scripts>
+    <Script>
+      <FileName>ecommerce_analysis.py</FileName>
+      <Language>Python (PySpark)</Language>
+      <Purpose>
+        Performs data cleaning, total revenue calculation, best-selling product analysis,
+        top customer identification, country-level sales analysis, average invoice value
+        calculation, and monthly sales reporting.
+      </Purpose>
+      <RunCommand>spark-submit ecommerce_analysis.py</RunCommand>
+      <Requirements>
+        <Item>Apache Spark 3.x</Item>
+        <Item>Python 3.8+</Item>
+        <Item>Java JDK 8 or higher</Item>
+      </Requirements>
+    </Script>
+  </Scripts>
+
+  <Results>
+    <TotalRevenue>To be filled after execution</TotalRevenue>
+    <AverageBasketValue>To be filled after execution</AverageBasketValue>
+    <TopProductsFile>ecommerce_results/top_products_by_quantity/part-*.csv</TopProductsFile>
+    <TopCustomersFile>ecommerce_results/top_customers_by_revenue/part-*.csv</TopCustomersFile>
+    <SalesByCountryFile>ecommerce_results/sales_by_country/part-*.csv</SalesByCountryFile>
+    <InvoiceTotalsFile>ecommerce_results/invoice_totals/part-*.csv</InvoiceTotalsFile>
+    <MonthlySalesFile>ecommerce_results/monthly_sales/part-*.csv</MonthlySalesFile>
+    <SummaryFile>ecommerce_results/summary.txt</SummaryFile>
+  </Results>
+
+  <ExecutionSteps>
+    <Step number="1">Place online_retail.csv and ecommerce_analysis.py in the same directory.</Step>
+    <Step number="2">Open a terminal or command prompt in that directory.</Step>
+    <Step number="3">Run the command: spark-submit ecommerce_analysis.py</Step>
+    <Step number="4">Wait for Spark to finish processing.</Step>
+    <Step number="5">Check the generated folder ecommerce_results for output files.</Step>
+    <Step number="6">Attach the result files and screenshots (if required) with the submission.</Step>
+  </ExecutionSteps>
+
+  <NotesForInstructor>
+    <Note>This project was implemented as an educational example using a small dataset.</Note>
+    <Note>The same script can be used for larger datasets without code modification.</Note>
+  </NotesForInstructor>
+
+  <Attachments>
+    <Attachment>online_retail.csv</Attachment>
+    <Attachment>ecommerce_analysis.py</Attachment>
+    <Attachment>submission_template.xml</Attachment>
+    <Attachment>ecommerce_results/summary.txt</Attachment>
+    <Attachment>ecommerce_results/*.csv</Attachment>
+  </Attachments>
+
+</Submission>
